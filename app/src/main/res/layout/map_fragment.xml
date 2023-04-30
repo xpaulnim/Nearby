@@ -94,7 +94,7 @@
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary" />
 
-                <TextView
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/readMoreTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

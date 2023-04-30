@@ -10,7 +10,7 @@ import okhttp3.logging.HttpLoggingInterceptor.Level
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-private const val WIKIPEDIA_URL = "https://wikipedia.org/"
+const val WIKIPEDIA_URL = "https://wikipedia.org"
 private const val PREFERRED_THUMB_SIZE = 320
 
 // https://www.mediawiki.org/wiki/Wikimedia_Apps/iOS_FAQ
