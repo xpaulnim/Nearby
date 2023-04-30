@@ -2,8 +2,10 @@ package com.xpaulnim.nearby
 
 import android.Manifest.permission.ACCESS_COARSE_LOCATION
 import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
+import android.net.Uri
 import android.os.Bundle
 import android.text.TextPaint
 import android.text.TextUtils
@@ -275,6 +277,10 @@ class MapsFragment : Fragment(R.layout.map_fragment) {
                     } else {
                         val pageTitle = response.query.pages[0].title
                         binding.titleTextView.text = pageTitle
+                        binding.readMoreTextView.setOnClickListener{
+                            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("${WIKIPEDIA_URL}/w/index.php?curid=$pageId"))
+                            startActivity(browserIntent)
+                        }
 
                         val pageSummary = response.query.pages[0].extract
                         if (pageSummary != null) {
