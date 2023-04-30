@@ -14,15 +14,6 @@
         mapbox:mapbox_cameraTargetLng="-74.0060"
         mapbox:mapbox_cameraZoom="9.0" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/deviceLocationButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="16dp"
-        android:contentDescription="Go to my location"
-        app:srcCompat="@drawable/ic_my_location" />
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/searchAreaButton"
         style="@style/Widget.Material3.Button.ElevatedButton"
@@ -34,38 +25,60 @@
         android:text="@string/search_this_area"
         android:visibility="invisible" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_margin="16dp"
-        android:minHeight="200dp"
-        android:visibility="invisible">
+        android:layout_gravity="bottom|end"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/deviceLocationButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:contentDescription="Go to my location"
+            app:srcCompat="@drawable/ic_my_location" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_gravity="bottom"
+            android:layout_margin="16dp"
+            android:minHeight="0dp"
+            android:visibility="gone">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:paddingTop="5dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/dismissCardViewButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    style="?attr/borderlessButtonStyle"
+                    android:text="DISMISS" />
 
                 <TextView
                     android:id="@+id/titleTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/dismissCardViewButton"
                     android:text=""
+                    android:paddingTop="25dp"
                     android:textAppearance="?attr/textAppearanceHeadline6" />
 
                 <TextView
                     android:id="@+id/descriptionTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/titleTextView"
                     android:layout_marginTop="8dp"
                     android:text=""
                     android:textAppearance="?attr/textAppearanceBody2"
@@ -75,28 +88,23 @@
                     android:id="@+id/distanceFromPoiTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/descriptionTextView"
                     android:layout_marginTop="16dp"
                     android:text=""
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary" />
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/dismissCardViewButton"
-                    style="?attr/borderlessButtonStyle"
+                <TextView
+                    android:id="@+id/readMoreTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="DISMISS" />
-            </LinearLayout>
+                    android:layout_below="@id/distanceFromPoiTextView"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="30dp"
+                    android:text="Read more..." />
 
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -104,11 +104,11 @@ class MapsFragment : Fragment(R.layout.map_fragment) {
         // TODO: Look into using subscribe() instead of listener
         binding.mapView.getMapboxMap().addOnCameraChangeListener(onMapCameraChangeListener)
         binding.searchAreaButton.setOnClickListener(onSearchAreaButtonListener)
-        binding.dismissCardViewButton.setOnClickListener { binding.cardView.visibility = View.INVISIBLE }
+        binding.dismissCardViewButton.setOnClickListener { binding.cardView.visibility = View.GONE }
         binding.deviceLocationButton.setOnClickListener {
             Log.i(TAG, "Going to device location")
             enableUserLocationMarker()
-
+            binding.cardView.visibility = View.GONE
             getDeviceLocation {
                 if (it != null) {
                     easeMapToPoint(it.latitude, it.longitude)
